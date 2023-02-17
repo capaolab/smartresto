@@ -1,0 +1,35 @@
+{% extends "global/index.html" %}
+{% load static %}
+
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+{% include "global/header.html" %}
+<section class="products-page">
+    <span>
+        <h1>CARDÁPIO</h1>
+        <p>Information....</p>
+    </span>
+    
+    <article class="products-bloc">
+        {% for product in products %}
+        <div class="product-box">
+            <img class="h-56" src="{% static 'img/my-product.png' %}">
+            <div class="product-description">
+                <h5>{{ product.name }}</h5>
+                <p>{{ product.description }}</p>
+                    <div class="product-price-qt">
+                        <h6>{{ product.price }}</h6>
+                        <p>Serve {{ product.people_qt }} pessoas</p>
+                    </div>
+                <div class="space-x-1 whitespace-nowrap">
+                    <a href="">Add Pedidos</a>
+                    <a href=""> Comprar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </article>
+</section>
+{% include "global/footer.html" %}
+{% endblock %}
